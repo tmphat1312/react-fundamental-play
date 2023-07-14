@@ -1,0 +1,100 @@
+@layer base, libaries, global, components;
+@import url(react-toastify/dist/ReactToastify.css) layer(libraries);
+@import url(./minimal-reset.css) layer(base);
+
+@layer base {
+  html {
+    font-size: 62.5%;
+  }
+
+  body {
+    font-size: 1.6rem;
+  }
+}
+
+@layer global {
+}
+
+@layer components {
+  .app {
+    padding-block: 3.2rem 1.6rem;
+    inline-size: 94vw;
+    margin-inline: auto;
+  }
+
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    margin-block-end: 2.8rem;
+
+    .title {
+      font-size: 2.8rem;
+      line-height: 1;
+      text-shadow: 1px 1px hsl(0 0% 0% / 0.5);
+      color: currentColor;
+    }
+
+    .form__field {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem;
+      border-radius: 4px;
+
+      &:hover {
+        background-color: hsl(0 0% 0% / 0.05);
+      }
+    }
+
+    .form__icon {
+      font-size: 1.5em;
+      display: flex;
+      cursor: pointer;
+      color: black;
+    }
+
+    .form__input {
+      cursor: pointer;
+      color: #000;
+
+      &.text {
+        inline-size: 9ch;
+        padding: 0.2em 0.5em;
+        border-radius: 4px;
+      }
+    }
+
+    .form__submit {
+      text-transform: capitalize;
+      padding: 0.4em 1em;
+      align-self: center;
+      border-radius: 8px;
+      box-shadow: 2px 2px 4px 0 hsl(0 0% 0% / 0.25);
+      cursor: pointer;
+      transition-duration: 100ms;
+      transition-property: box-shadow;
+
+      &:hover {
+        box-shadow: 3px 3px 8px 0 hsl(0 0% 0% / 0.35);
+      }
+    }
+  }
+
+  .colors {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .color {
+    block-size: 16rem;
+    flex: 1 1 16rem;
+    padding: 2.4rem 1.6rem;
+    cursor: copy;
+
+    &:hover {
+      outline: 2px solid currentColor;
+      z-index: 2;
+    }
+  }
+}

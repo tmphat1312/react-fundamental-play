@@ -1,0 +1,25 @@
+.square {
+	--color: #434474;
+	all: initial;
+	font-size: 2.8rem;
+	padding: 0.25em;
+	border: 2px solid var(--color);
+	border-collapse: collapse;
+	display: inline-grid;
+	place-content: center;
+	cursor: pointer;
+	transition: scale 100ms;
+
+	&:active {
+		background-color: var(--color);
+		color: #fff;
+	}
+
+	&:hover {
+		scale: 1.05;
+	}
+
+	&.win-route {
+		background-color: lightblue;
+	}
+}

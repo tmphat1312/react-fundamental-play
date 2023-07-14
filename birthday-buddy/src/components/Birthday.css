@@ -1,0 +1,15 @@
+.birthday {
+  display: flex;
+  gap: 1rem;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.birthday__image {
+  max-width: 64px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+}

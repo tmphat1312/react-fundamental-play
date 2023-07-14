@@ -1,0 +1,191 @@
+@layer base, global, utilities ,components;
+
+@layer base {
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ol,
+  ul,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+
+  img,
+  picture {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+@layer global {
+  :root {
+    --primary-100: #d1fae5;
+    --primary-200: #a7f3d0;
+    --primary-300: #6ee7b7;
+    --primary-400: #34d399;
+    --primary-500: #10b981;
+    --primary-600: #059669;
+    --primary-700: #047857;
+    --primary-800: #065f46;
+    --primary-900: #064e3b;
+
+    --grey-50: #f8fafc;
+    --grey-100: #f1f5f9;
+    --grey-200: #e2e8f0;
+    --grey-300: #cbd5e1;
+    --grey-400: #94a3b8;
+    --grey-500: #64748b;
+    --grey-600: #475569;
+    --grey-700: #334155;
+    --grey-800: #1e293b;
+    --grey-900: #0f172a;
+    --white: #fff;
+
+    --shadow-light-color: hsla(0, 0%, 0%, 0.25);
+    --shadow-light: 4px 4px 8px 2px hsla(0, 0%, 0%, 0.08);
+
+    --max-width: 124rem;
+  }
+
+  html {
+    font-size: 62.5%;
+
+    @media screen and (width >= 87.5em) {
+      font-size: 75%;
+    }
+
+    @media screen and (width >= 100em) {
+      font-size: 84%;
+    }
+  }
+
+  h1 {
+    font-size: clamp(3.2rem, 6vw, 6rem);
+  }
+
+  h2 {
+    font-size: clamp(2.8rem, 5.2vw, 5.2rem);
+  }
+
+  h3 {
+    font-size: clamp(2.4rem, 4vw, 4rem);
+  }
+
+  h4 {
+    font-size: clamp(1.6rem, 3.2vw, 3.2rem);
+  }
+
+  h5 {
+    font-size: clamp(1.2rem, 2vw, 2rem);
+  }
+
+  ul,
+  ol {
+    list-style: none;
+    padding: 0;
+  }
+
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100dvh;
+    font-synthesis: none;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    background-color: var(--grey-100);
+  }
+
+  a {
+    font-weight: 500;
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+    outline-color: unset;
+
+    &:active {
+      color: lightskyblue;
+    }
+  }
+
+  button {
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+  a,
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+    font-size: inherit;
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .width-limit {
+    inline-size: min(var(--max-width, 120rem), 100% - 3.2rem);
+    margin-inline: auto;
+  }
+
+  .full-bleed {
+    --color: #fff;
+    box-shadow: 0 0 0 100vmax var(--color);
+    clip-path: inset(0 -100vmax);
+    background-color: var(--color);
+  }
+
+  .page {
+    padding-block: 4rem;
+  }
+}
+
+@layer components {
+  /* we will use `styled-components` in this project, so nothing to look for in this layer */
+}

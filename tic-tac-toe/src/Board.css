@@ -1,0 +1,8 @@
+.board {
+	--size: 4.8rem;
+	margin-inline: auto;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(var(--size), auto));
+	grid-auto-rows: minmax(var(--size), auto);
+	place-content: center;
+}

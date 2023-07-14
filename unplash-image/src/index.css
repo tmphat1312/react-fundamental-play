@@ -1,0 +1,145 @@
+@layer base, global, theme, components;
+@import url(./minimal-reset.css) layer(base);
+@import url(./global.css) layer(global);
+
+@layer global {
+  :root {
+    --primary-100: #e2e0ff;
+    --primary-200: #c1beff;
+    --primary-300: #a29dff;
+    --primary-400: #837dff;
+    --primary-500: #645cff;
+    --primary-600: #504acc;
+    --primary-700: #3c3799;
+    --primary-800: #282566;
+    --primary-900: #141233;
+
+    --grey-50: #f8fafc;
+    --grey-100: #f1f5f9;
+    --grey-200: #e2e8f0;
+    --grey-300: #cbd5e1;
+    --grey-400: #94a3b8;
+    --grey-500: #64748b;
+    --grey-600: #475569;
+    --grey-700: #334155;
+    --grey-800: #1e293b;
+    --grey-900: #0f172a;
+
+    --bg-color: var(--grey-50);
+    --text-color: var(--grey-900);
+    --dark-bg-color: #333;
+    --dark-text-color: #f0f0f0;
+
+    color-scheme: light dark;
+  }
+
+  :focus,
+  :focus-visible {
+    outline-offset: 4px;
+  }
+}
+
+@layer theme {
+  .dark-mode {
+    --bg-color: var(--dark-bg-color);
+    --text-color: var(--dark-text-color);
+    color-scheme: dark;
+  }
+
+  body {
+    color-scheme: light;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: 300ms ease-in-out;
+    transition-property: color, background-color;
+  }
+}
+
+@layer components {
+  .app {
+    padding-block: 2rem;
+    inline-size: min(92vw, 120rem);
+    margin-inline: auto;
+  }
+
+  .darkMode-toggler {
+    @media screen and (width < 768px) {
+      font-size: 1.4rem;
+    }
+
+    padding: 0.2em 0.5em;
+    display: flex;
+    margin-inline-start: auto;
+    align-items: center;
+    gap: 0.8rem;
+    background-color: var(--grey-200);
+    border-radius: 100px;
+    box-shadow: 0.2rem 0.2rem 0.5rem 0 hsla(0 0% 0% / 0.25);
+
+    .dark-mode & {
+      background-color: var(--grey-700);
+    }
+  }
+
+  .search {
+    .title {
+      text-align: center;
+      margin-block-end: 1em;
+      color: var(--primary-500);
+      text-transform: capitalize;
+    }
+
+    margin-block-end: 2.8rem;
+  }
+
+  .search-form {
+    background-color: var(--grey-100);
+    display: flex;
+    font-size: 2rem;
+
+    @media screen and (width < 768px) {
+      font-size: 1.6rem;
+    }
+
+    .title {
+      text-align: center;
+    }
+
+    .input {
+      flex: 1;
+      padding-inline: 1.2rem;
+      border-color: var(--primary-400);
+      border-inline-end-color: transparent;
+    }
+
+    .submit {
+      padding-inline: 1em;
+      background-color: var(--primary-500);
+      color: white;
+      transition: background-color 100ms;
+      box-shadow: 0.2rem 0.2rem 0.5rem 0 hsla(0 0% 0% / 0.25);
+
+      &:hover {
+        background-color: var(--primary-600);
+      }
+    }
+  }
+
+  .gallery {
+    column-count: 3;
+    column-gap: 1rem;
+
+    .img {
+      margin-bottom: 1rem;
+      border-radius: 4px;
+    }
+
+    @media screen and (width < 768px) {
+      column-count: 2;
+    }
+
+    @media screen and (width < 600px) {
+      column-count: 1;
+    }
+  }
+}
